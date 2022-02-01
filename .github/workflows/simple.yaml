@@ -28,4 +28,4 @@ jobs:
         password: ${{ secrets.GHCR_TOKEN }}
         repository: karthikinala/github-actions-pg-helm
         tags: ${{ github.sha }}
-        dockerfile: Dockerfile
+        run: docker build --file Dockerfile --tag hello-world:$(echo ${GITHUB_SHA} | cut -c1-7) .
