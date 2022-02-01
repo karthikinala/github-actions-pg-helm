@@ -20,3 +20,12 @@ jobs:
         registry: ghcr.io
         username: ${{ secrets.GHCR_USERNAME }} 
         password: ${{ secrets.GHCR_TOKEN }}
+    - name: Push to GitHub Packages
+      uses: docker/build-push-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.GHCR_USERNAME }} 
+        password: ${{ secrets.GHCR_TOKEN }}
+        repository: karthikinala/github-actions-pg-helm
+        tags: ${{ github.sha }}
+        dockerfile: Dockerfile
