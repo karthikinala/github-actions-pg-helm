@@ -9,8 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SHA8: ${GITHUB_SHA::8}
 
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:${GITHUB_SHA::8} .
+      run: docker build . --file Dockerfile --tag my-image-name:$SHA8 .
