@@ -19,4 +19,4 @@ jobs:
       with:
         registry: ghcr.io
         username: karthikinala
-        password: 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
+        password: 
